@@ -9,8 +9,12 @@ public class LinearEquationLogic {
 
     public void getCoordinates() {
         String Coordinate1 = turnCoordinateToString(askQuestion("Enter Coordinate 1 (x, y): "));
+        int Coord1Int1 = Integer.parseInt(Coordinate1.substring(0, Coordinate1.indexOf(",")));
+        int Coord1Int2 = Integer.parseInt(Coordinate1.substring(Coordinate1.indexOf(",") + 1));
         String Coordinate2 = turnCoordinateToString(askQuestion("Enter Coordinate 2 (x, y): "));
-        LinearEquation(Integer.parseInt(Coordinate1.substring(0, Coordinate1.indexOf(","))), Integer.parseInt(Coordinate1.substring(Coordinate1.substring(Coordinate1.indexOf(",") + 1))), );
+        int Coord2Int1 = Integer.parseInt(Coordinate2.substring(0, Coordinate2.indexOf(",")));
+        int Coord2Int2 = Integer.parseInt(Coordinate2.substring(Coordinate2.indexOf(",") + 1));
+        LinearEquation coord = new LinearEquation(Coord1Int1, Coord1Int2, Coord2Int1, Coord2Int2);
 
     }
 
@@ -20,7 +24,7 @@ public class LinearEquationLogic {
         return scan.nextLine();
     }
 
-    //This method can be better but is ok for now
+
     public String turnCoordinateToString(String str) {
         int firstInt = Integer.parseInt(str.substring(1, str.indexOf(",")));
         String coordinateInts = Integer.toString(firstInt);
