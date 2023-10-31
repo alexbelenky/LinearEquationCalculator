@@ -21,8 +21,8 @@ public class LinearEquation {
         System.out.println("The slope of this line is: " + m);
         System.out.println("The y-intercept of the line is: " + b);
         System.out.println("The distance between the two points is: " + distanceBetweenPoints());
-        double pairWithX = Double.parseDouble(LinearEquationLogic.askQuestion("Enter a value for x: "));
-
+        double pairWithX = Double.parseDouble(LinearEquationLogic.askQuestion("\nEnter a value for x: "));
+        System.out.println("\nThe point on the line is " + returnCoordWithX(pairWithX));
     }
 
     public String returnFormula() {
@@ -37,6 +37,7 @@ public class LinearEquation {
     }
 
     public String returnCoordWithX(double x) {
-        double y =
+        double y = (m * x) + b;
+        return "(" + x + ", " + y + ")";
     }
 }
