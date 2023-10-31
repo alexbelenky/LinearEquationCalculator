@@ -22,7 +22,7 @@ public class LinearEquationLogic {
                 ifContinue = "n";
             }
         }
-        System.out.println("Thank you for using the slope calculator!");
+        System.out.println("Thank you for using the slope calculator, goodbye!");
     }
 
     public static String askQuestion(String ques) {
