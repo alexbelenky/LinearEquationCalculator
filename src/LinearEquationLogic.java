@@ -15,8 +15,9 @@ public class LinearEquationLogic {
         int Coord2Int1 = Integer.parseInt(Coordinate2.substring(0, Coordinate2.indexOf(",")));
         int Coord2Int2 = Integer.parseInt(Coordinate2.substring(Coordinate2.indexOf(",") + 1));
         LinearEquation coord = new LinearEquation(Coord1Int1, Coord1Int2, Coord2Int1, Coord2Int2);
-        System.out.println(coord.returnFormula());
+        coord.lineInfo();
     }
+
 
     public static String askQuestion(String ques) {
         Scanner scan = new Scanner(System.in);
