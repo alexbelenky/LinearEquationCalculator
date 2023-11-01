@@ -41,22 +41,29 @@ public class LinearEquation {
         if (Coord1Y == Coord2Y) {
             return "y = " + b;
         } else {
-            if (b != 0 && b > 0) {
+            if (Math.abs(slope()) == 1 && b > 0) {
+                return "y = " + "x" + " + " + b;
+            } else if (Math.abs(slope()) == 1 && b < 0) {
+                return "y = " + "x" + " - " + b;
+            }  else if (Math.abs(slope()) == 1 && b == 0) {
+                return  "y = " + "x";
+            } else if (b == 0) {
+                return "y = " + slope + "x";
+            }  else if (b > 0) {
                 return "y = " + slope + "x" + " + " + b;
-            } else if (b != 0) {
+            } else {
                 double absB = Math.abs(b);
                 return "y = " + slope + "x" + " - " + absB;
             }
-            return "y = " + slope + "x";
         }
     }
-
+//b != 0 && b > 0
     public double distance() {
-        return (double) Math.round(((Math.sqrt(Math.pow((Coord2X - Coord1X), 2) + Math.pow((Coord2Y - Coord1Y), 2))) * 100)) / 100;
+        return roundedToHundredth((Math.sqrt(Math.pow((Coord2X - Coord1X), 2) + Math.pow((Coord2Y - Coord1Y), 2))));
     }
 
     public double yIntercept() {
-        b = Math.round(((Coord1Y - (m * Coord1X)) * 100) / 100);
+        b = roundedToHundredth(((Coord1Y - (m * Coord1X))));
         return b;
     }
 
@@ -75,5 +82,9 @@ public class LinearEquation {
     public String coordinateForX(double x) {
         double y = (m * x) + b;
         return "(" + x + ", " + y + ")";
+    }
+
+    private double roundedToHundredth(double toRound) {
+        return Math.round(toRound * 100.0) / 100.0;
     }
 }
