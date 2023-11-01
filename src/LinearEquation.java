@@ -22,8 +22,6 @@ public class LinearEquation {
             System.out.println("The slope of this line is: " + m);
             System.out.println("The y-intercept of the line is: " + b);
             System.out.println("The distance between the two points is: " + distance());
-            double pairWithX = Double.parseDouble(LinearEquationLogic.askQuestion("\nEnter a value for x: "));
-            System.out.println("\nThe point on the line is " + coordinateForX(pairWithX));
         } else if (Coord1X == Coord2X) {
             System.out.println("\nThe points are on horizontal line. x = " + Coord1X);
         } else {
@@ -32,8 +30,6 @@ public class LinearEquation {
             System.out.println("The slope of this line is: " + m);
             System.out.println("The y-intercept of the line is: " + b);
             System.out.println("The distance between the two points is: " + distance());
-            double pairWithX = Double.parseDouble(LinearEquationLogic.askQuestion("\nEnter a value for x: "));
-            System.out.println("\nThe point on the line is " + coordinateForX(pairWithX));
         }
     }
 
@@ -57,7 +53,6 @@ public class LinearEquation {
             }
         }
     }
-//b != 0 && b > 0
     public double distance() {
         return roundedToHundredth((Math.sqrt(Math.pow((Coord2X - Coord1X), 2) + Math.pow((Coord2Y - Coord1Y), 2))));
     }
