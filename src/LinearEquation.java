@@ -16,20 +16,26 @@ public class LinearEquation {
         yIntercept();
     }
 
-    public void lineInfo() {
+    public String lineInfo() {
         if (Coord1Y == Coord2Y) {
-            System.out.println("The equation of the line between these points is: " + equation());
-            System.out.println("The slope of this line is: " + m);
-            System.out.println("The y-intercept of the line is: " + b);
-            System.out.println("The distance between the two points is: " + distance());
+            String verticalLine = "\nThe equation of the line between these points is: " + equation();
+            verticalLine += standardForm();
+            verticalLine += pointSlope();
+            verticalLine += ("\nThe slope of this line is: " + m);
+            verticalLine += ("\nThe y-intercept of the line is: " + b);
+            verticalLine += ("\nThe distance between the two points is: " + distance());
+            return verticalLine;
         } else if (Coord1X == Coord2X) {
-            System.out.println("\nThe points are on horizontal line. x = " + Coord1X);
+            return "\nThe points are on horizontal line. x = " + Coord1X;
         } else {
-            System.out.println("\nThe two points are: (" + Coord1X + ", " + Coord1Y + ") and (" + Coord2X + ", " + Coord2Y + ")");
-            System.out.println("The equation of the line between these points is: " + equation());
-            System.out.println("The slope of this line is: " + m);
-            System.out.println("The y-intercept of the line is: " + b);
-            System.out.println("The distance between the two points is: " + distance());
+            String normalEquat = "\nThe two points are: (" + Coord1X + ", " + Coord1Y + ") and (" + Coord2X + ", " + Coord2Y + ")";
+            normalEquat += ("\nThe equation of the line between these points is: " + equation());
+            normalEquat += standardForm();
+            normalEquat += pointSlope();
+            normalEquat += ("\nThe slope of this line is: " + m);
+            normalEquat += ("\nThe y-intercept of the line is: " + b);
+            normalEquat += ("\nThe distance between the two points is: " + distance());
+            return normalEquat;
         }
     }
 
@@ -53,6 +59,36 @@ public class LinearEquation {
             }
         }
     }
+
+    public String standardForm() {
+        String stForm = "\nThe standard form of the equation is: ";
+        if (Math.abs(m) != m) {
+            double absM = Math.abs(m);
+            stForm += absM + "x + y " + " = " + b;
+            return stForm;
+        }
+        stForm += m + "x + y " + " = " + b;
+        return stForm;
+    }
+
+    public String pointSlope() {
+        String psForm = "\nThe point slope form of the equation is: ";
+        if (Math.abs(b) != b) {
+            double y = Math.abs(b);
+            psForm += "y + " + y + " = " + m + "x";
+            return psForm;
+        } else {
+            psForm += "y - " + b + " = " + m + "x";
+            return psForm;
+        }
+    }
+
+    public String altForms() {
+        String forms = standardForm();
+        forms += pointSlope();
+        return forms;
+    }
+
     public double distance() {
         return roundedToHundredth((Math.sqrt(Math.pow((Coord2X - Coord1X), 2) + Math.pow((Coord2Y - Coord1Y), 2))));
     }

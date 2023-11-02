@@ -17,7 +17,7 @@ public class LinearEquationLogic {
             int Coord2Int1 = Integer.parseInt(Coordinate2.substring(0, Coordinate2.indexOf(",")));
             int Coord2Int2 = Integer.parseInt(Coordinate2.substring(Coordinate2.indexOf(",") + 1));
             LinearEquation coord = new LinearEquation(Coord1Int1, Coord1Int2, Coord2Int1, Coord2Int2);
-            coord.lineInfo();
+            System.out.println(coord.lineInfo());
             double pairWithX = Double.parseDouble(askQuestion("\nEnter a value for x: "));
             System.out.println("\nThe point on the line is " + coord.coordinateForX(pairWithX));
             if (!askQuestion("\nWould you like to enter another pair of coordinates? y/n: ").equals("y")) {
